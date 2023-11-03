@@ -31,7 +31,7 @@ const addTask = () => {
   }
 }
 
-const doneTask = (task: Task) => {
+function doneTask (task: Task) {
   const find = taskList.value.findIndex((t: Task) => t.id === task.id)
   if (task.done) {
     if (find !== -1) {
@@ -42,6 +42,7 @@ const doneTask = (task: Task) => {
       task.done = true
     }
   }
+  localStorage.setItem('tasks', JSON.stringify(taskList.value))
 }
 
 const removeTask = (task: Task) => {
