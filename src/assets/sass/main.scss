@@ -1,0 +1,151 @@
+@import './variables.scss';
+
+* , *::after, *::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul{
+  list-style: none;
+}
+a{
+  font-style: normal;
+}
+
+[data-theme="dark"] {
+  --bg-color1: #222222;
+  --font-color: #f4f4f4;
+}
+
+[data-theme="light"] {
+  --bg-color1: #f5f5f5;
+  --font-color: #121416;
+}
+
+html{
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+body {
+  background-color: $light_body;
+}
+
+body, button, input, textarea {
+  font-family: $body_font;
+}
+
+.xl-text {
+  font-size: $xl_text;
+}
+
+.lg-text {
+  font-size: $lg_text;
+}
+
+.rg-text {
+  font-size: $rg_text;
+}
+
+.md-text {
+  font-size: $md_text;
+}
+
+.sm-text {
+  font-size: $sm_text;
+}
+
+.xs-text {
+  font-size: $xs_text;
+}
+
+.card{
+  border-radius: $sm_radius;
+}
+
+.bg-transparent{
+  background-color: transparent;
+}
+
+.bg-primary{
+  background-color: $primary;
+}
+
+.bg-secondary{
+  background-color: $secondary;
+}
+
+.bg-background{
+  background-color: $light_body;
+}
+
+.bg-accent{
+  background-color: $accent;
+}
+
+.text-primary{
+  color: $primary;
+}
+
+.text-secondary{
+  color: $secondary;
+}
+
+.text-accent{
+  color: $accent;
+}
+
+.text-dark{
+  color: $dark_texts;
+}
+
+.text-disable{
+  color: $disable;
+}
+
+.text-negative{
+  color: $negative
+}
+
+.button{
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  border-radius: $sm_radius;
+  min-height: 50px;
+  width: 100%;
+  min-width: 50px;
+  cursor: pointer;
+}
+
+.icon-btn{
+  border: none;
+  outline: none;
+  border-radius: $sm_radius;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-700{
+  font-weight: 700;
+}
+
+.line-through{
+  text-decoration: line-through;
+}
+
+.scroll-area{
+  max-height: 450px;
+  // min-height: 100px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  scrollbar-width: none;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}

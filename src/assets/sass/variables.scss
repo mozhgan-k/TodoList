@@ -1,0 +1,67 @@
+@font-face {
+  font-family: DMsans;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/DMSans-VariableFont_opsz-wght.ttf") format("truetype");
+}
+
+//FONT FAMILY
+$body_font: DMsans;
+
+
+//FONT SIZES
+$xl_text: 32px;
+$lg_text: 24px;
+$rg_text: 17px;
+$md_text: 14px;
+$sm_text: 12px;
+$xs_text: 10px;
+
+
+//COLOS
+$dark_body: #222222;
+$dark_texts: #222222;
+$light_texts: #f5f5f5;
+$light_body: #F1F0E8;
+$primary: #96B6C5;
+// $secondary: #ADC4CE;
+$secondary: #E6F4F1;
+$accent: #EEE0C9;
+$disable: #99A799;
+$negative: #FF7878;
+$positive: #CAF7E3;
+
+//BORDER RADIUS
+
+$sm_radius: 10px;
+$xs_radius: 5px;
+
+
+//SPACING
+
+$xl: 32px;
+$lg: 24px;
+
+
+
+// #E5FDFF
+// #FCFCD4
+// #C0ABBF
+// #052834
+// #C47C96
+// #6CE5D5
+// #85F9BD
+// #B6A6B5
+// #C0ABBF
+// #C9848B
+// #6BA37C
+// #C6AD98
+// #49C087
+// #8A7789
+// #886284
+// #874C65
+// #B8F592
+// #F9F871
+// #87ECB5
+// #7FCAD3
