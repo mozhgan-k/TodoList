@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheCard from "./components/TheCard.vue";
-import TheTagModal from "./components/TheTagModal.vue";
+import TheLabelModal from "./components/TheLabelModal.vue";
 import { useStore } from "./stores/storeTodoList";
 
 const store = useStore()
@@ -14,7 +14,7 @@ const modal = store.$state.modal
   </main>
 
   <div class="overlay" v-if="modal.value && modal.type === 'addLable'">
-    <TheTagModal/>
+    <TheLabelModal/>
   </div>
 </template>
 
