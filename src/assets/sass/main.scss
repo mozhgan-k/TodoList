@@ -1,15 +1,18 @@
 @import './variables.scss';
 
-* , *::after, *::before{
+*,
+*::after,
+*::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-ul{
+ul {
   list-style: none;
 }
-a{
+
+a {
   font-style: normal;
 }
 
@@ -23,7 +26,7 @@ a{
   --font-color: #121416;
 }
 
-html{
+html {
   scroll-behavior: smooth;
   min-height: 100vh;
 }
@@ -32,7 +35,10 @@ body {
   background-color: $light_body;
 }
 
-body, button, input, textarea {
+body,
+button,
+input,
+textarea {
   font-family: $body_font;
 }
 
@@ -60,55 +66,57 @@ body, button, input, textarea {
   font-size: $xs_text;
 }
 
-.card{
+.card {
   border-radius: $sm_radius;
+  background-color: #fff;
+  min-width: 280px;
 }
 
-.bg-transparent{
+.bg-transparent {
   background-color: transparent;
 }
 
-.bg-primary{
+.bg-primary {
   background-color: $primary;
 }
 
-.bg-secondary{
+.bg-secondary {
   background-color: $secondary;
 }
 
-.bg-background{
+.bg-background {
   background-color: $light_body;
 }
 
-.bg-accent{
+.bg-accent {
   background-color: $accent;
 }
 
-.text-primary{
+.text-primary {
   color: $primary;
 }
 
-.text-secondary{
+.text-secondary {
   color: $secondary;
 }
 
-.text-accent{
+.text-accent {
   color: $accent;
 }
 
-.text-dark{
+.text-dark {
   color: $dark_texts;
 }
 
-.text-disable{
+.text-disable {
   color: $disable;
 }
 
-.text-negative{
+.text-negative {
   color: $negative
 }
 
-.button{
+.button {
   border: none;
   outline: none;
   text-transform: uppercase;
@@ -119,7 +127,7 @@ body, button, input, textarea {
   cursor: pointer;
 }
 
-.icon-btn{
+.icon-btn {
   border: none;
   outline: none;
   border-radius: $sm_radius;
@@ -131,21 +139,47 @@ body, button, input, textarea {
   align-items: center;
 }
 
-.font-700{
+.font-700 {
   font-weight: 700;
 }
 
-.line-through{
+.line-through {
   text-decoration: line-through;
 }
 
-.scroll-area{
+.scroll-area {
   max-height: 450px;
   // min-height: 100px;
   overflow-y: scroll;
   margin-bottom: 10px;
   scrollbar-width: none;
-  &::-webkit-scrollbar{
+
+  &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+
+.overlay {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(34, 17, 34, 0.229);
+  z-index: 1;
+}
+
+input:not([type="checkbox"]), textarea{
+  border: 1px solid #eee;
+  outline: none;
+  border-radius: $sm_radius;
+  padding: 7px 10px;
+  min-height: 50px;
+  &:focus{
+    border-color: $primary;
   }
 }

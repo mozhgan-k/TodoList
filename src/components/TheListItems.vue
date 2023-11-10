@@ -22,6 +22,7 @@ const removeTask = () => {
     <input @change="doneTask" type="checkbox" name="checkbox" :value="task.done" />
   </label>
   <div style="width: 97%">{{ props.task.text }}</div>
+  <div v-if="props.task.label" class="label" >{{ props.task.label.text }}</div>
   <button
     @click="removeTask"
     class="icon-btn bg-transparent text-negative rg-text action-btn"
@@ -74,5 +75,14 @@ input[type='checkbox'] {
   &:checked::before {
     transform: scale(1);
   }
+}
+
+.label{
+  // background-color: #553C8B;
+  width: auto;
+  height: 30px;
+  border-radius: 3px;
+  vertical-align: middle;
+  display: inline-block;
 }
 </style>

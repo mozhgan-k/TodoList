@@ -1,19 +1,26 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
-
+import { useStore } from '@/stores/storeTodoList';
+import { ref } from 'vue'
 let text = ref('')
+
+
+let addLabel = ref(false)
 
 const emit = defineEmits<{
   (e: 'addTask'): void
   (e: 'text', val: string): string
 }>()
-const addTask = () => {
-  emit('addTask')
-}
 
 const insertText = () => {
   emit('text', text.value)
   text.value = ''
+}
+
+const store = useStore()
+
+const insertLabel = () => {
+  debugger
+  store.set_modal({type: 'addLable', value: true})
 }
 </script>
 
@@ -24,12 +31,7 @@ const insertText = () => {
     </div>
     <div>
       <div class="actions-container">
-        <button class="icon-btn bg-background text-dark rg-text" style="margin-bottom: 5px">
-          <i class="bi bi-palette"></i>
-        </button>
-      </div>
-      <div class="actions-container">
-        <button class="icon-btn bg-background text-dark rg-text">
+        <button @click="insertLabel" class="icon-btn bg-background text-dark rg-text">
           <i class="bi bi-tag-fill"></i>
         </button>
       </div>
@@ -47,7 +49,6 @@ const insertText = () => {
   padding: 10px;
   display: grid;
   grid-template-columns: 290px 50px;
-  align-items: center;
   align-self: center;
   textarea {
     outline: none;

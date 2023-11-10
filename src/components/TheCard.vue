@@ -3,6 +3,9 @@ import type {Task} from '../types/type'
 import { ref } from 'vue'
 import TheListItems from './TheListItems.vue';
 import TheInput from './TheInput.vue';
+import { useStore } from '@/stores/storeTodoList';
+
+const store = useStore()
 
 let taskList = ref<Task[]>([])
 
@@ -24,6 +27,9 @@ const addTask = () => {
       id: taskList.value.length + 1,
       done: false,
       text: textarea.value
+    }
+    if(store.$state.modal.data) {
+      task.label = store.$state.modal.data
     }
     taskList.value.push(task)
     localStorage.setItem('tasks', JSON.stringify(taskList.value))
@@ -60,6 +66,7 @@ const removeTask = (task: Task) => {
     <div class="scroll-area">
       <ul>
         <li
+        style="posittion: relative"
           v-for="(task, i) in taskList"
           :key="i"
           :class="task.done ? 'line-through bg-background text-disable' : 'bg-secondary'"
@@ -81,8 +88,8 @@ const removeTask = (task: Task) => {
   padding: 15px;
   max-width: 400px;
   width: 100%;
-  background-color: #fff;
   margin-inline: auto;
+
   ul li {
   padding: 10px;
   margin-bottom: 15px;
