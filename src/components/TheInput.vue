@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 import { useStore } from '@/stores/storeTodoList';
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+
 let text = ref('')
-
-
-let addLabel = ref(false)
 
 const emit = defineEmits<{
   (e: 'addTask'): void
@@ -19,9 +17,13 @@ const insertText = () => {
 const store = useStore()
 
 const insertLabel = () => {
-  debugger
   store.set_modal({type: 'addLable', value: true})
 }
+
+const modal = computed(() => {
+  return store.$state.modal
+})
+
 </script>
 
 <template>
@@ -31,7 +33,7 @@ const insertLabel = () => {
     </div>
     <div>
       <div class="actions-container">
-        <button @click="insertLabel" class="icon-btn bg-background text-dark rg-text">
+        <button @click="insertLabel" class="icon-btn text-dark rg-text" :style="{'background-color': modal.data && modal.data.text ? modal.data.color : 'bg-background'}">
           <i class="bi bi-tag-fill"></i>
         </button>
       </div>

@@ -9,7 +9,6 @@ export const useStore = defineStore('store', {
 
   actions: {
     set_modal(modal: Modal) {
-      debugger
       this.modal = modal
     }
   }

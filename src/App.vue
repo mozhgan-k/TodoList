@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import TheCard from "./components/TheCard.vue";
 import TheLabelModal from "./components/TheLabelModal.vue";
 import { useStore } from "./stores/storeTodoList";
 
 const store = useStore()
 
-const modal = store.$state.modal
+const modal = computed(() => {
+  return store.$state.modal
+})
+
 </script>
 
 <template>

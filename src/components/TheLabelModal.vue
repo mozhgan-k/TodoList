@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useStore } from '@/stores/storeTodoList';
 import type { Label } from '../types/type'
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 let colors = ['#E5FDFF', '#FCFCD4','#F4EEFF', '#212121', '#C47C96', '#6CE5D5', '#B6A6B5', '#FF8787', '#FFC898',
   '#C9848B', '#C6AD98', '#49C087', '#886284', '#874C65', '#B8F592', '#F9F871', '#87ECB5', '#D45079', '#553C8B', '#4B1E19']
@@ -12,16 +12,23 @@ let tag = ref('')
 
 let colorName = ref('')
 
-let label = ref<Label>({
-  text: tag.value,
-  color: colorName.value
-})
-
-
 const setColor = (color: string) => {
   colorName.value = color
   showPalette.value = false
 }
+
+let label: Label = {
+  text: tag.value,
+  color: colorName.value
+}
+
+watch(tag, (newTag, oldTag) => {
+  label.text = newTag
+})
+
+watch(colorName, (newColor, oldColor) => {
+  label.color = newColor
+})
 
 const store = useStore()
 
@@ -38,10 +45,10 @@ const addLabels = () => {
     </div>
     <div class="input-container">
       <input v-model="tag" placeholder="Ex: important, work, ...">
-      <div style="position: relative">
-        <button @click.exact="showPalette = !showPalette" class="icon-btn bg-background text-dark rg-text" style="margin-bottom: 5px">
-        <i class="bi bi-palette"></i>
-      </button>
+      <div style="position: relative; display: flex; flex-direction: column; align-items: center">
+        <button @click.exact="showPalette = !showPalette" class="selected-color bg-background text-dark rg-text" 
+        :style="{ 'background-color': colorName ? colorName : '#C47C96' }">
+        </button>
         <div class="color-palette" v-if="showPalette">
           <div v-for="color in colors" :key="color">
             <button @click.exact="setColor(color)" :style="{ 'background-color': color }">{{ color }}</button>
@@ -67,7 +74,7 @@ const addLabels = () => {
 .input-container {
   padding: 5px;
   display: grid;
-  grid-template-columns: 85% 25%;
+  grid-template-columns: 80% 25%;
   align-items: center;
   margin-bottom: 10px;
 
@@ -105,5 +112,15 @@ const addLabels = () => {
     border-radius: 5px;
     margin-inline: auto;
   }
+}
+
+.selected-color{
+  width: 40px;
+  height: 30px;
+  border-radius: 5px;
+  margin-inline: auto;
+  border: none;
+  outline: none;
+  cursor: pointer
 }
 </style>

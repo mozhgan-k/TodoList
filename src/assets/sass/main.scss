@@ -92,6 +92,10 @@ textarea {
   background-color: $accent;
 }
 
+.bg-positive {
+  background-color: $positive;
+}
+
 .text-primary {
   color: $primary;
 }
@@ -148,7 +152,7 @@ textarea {
 }
 
 .scroll-area {
-  max-height: 450px;
+  max-height: 600px;
   // min-height: 100px;
   overflow-y: scroll;
   margin-bottom: 10px;
